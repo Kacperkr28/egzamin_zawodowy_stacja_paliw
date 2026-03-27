@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<title>Stacja Paliw</title>
+	<link rel="stylesheet" href="styl2.css">
+</head>
+<body>
+	<div class="banner">
+		<h1>Całodobowa stacja paliw</h1>
+	</div>
+	
+	<div class="menu">
+		<a href="stacja.html"><image src="../img/home.png" alt="home" class="odnosniki"></a>
+		<a href="obliczenia.html"><image src="../img/znak.png" alt="znak" class="odnosniki"></a>
+		<a href="../kwerendy/kewrendy.txt" class="odnosniki" download>Pobierz dokumenty</a>
+	</div>
+	
+	<div class="lewy">
+		<h2>Orientacyjny koszt paliwa</h2>
+		
+		<label>Rodzaj paliwa (1-benzyna, 2-olej napędowy):</label></br>
+		<input type="number" id="rodzaj"></br>
+		<label>Ile litrów?</label></br>
+		<input type="number" id="litry"></br>
+		<button onclick="oblicz()">OBLICZ</button>
+		<p id="wynik"></p>
+	</div>
+	
+	<div class="prawy">
+		<image src="../img/samochod.png" alt="samochód" class="img">
+	</div>
+	
+	<footer>
+		<a>Stronę opracował: Kacper Krawczyk</a>
+	</footer>
+	
+	<script>
+	function oblicz() {
+    let rodzaj = document.getElementById('rodzaj').value;
+    let litry = parseFloat(document.getElementById('litry').value);
+    let kosztJednostkowy = 0;
+    let suma = 0;
+
+    if (rodzaj == "1") {
+        kosztJednostkowy = 4;
+    } else if (rodzaj == "2") {
+        kosztJednostkowy = 3.5;
+    } else {
+        kosztJednostkowy = 0;
+    }
+
+    suma = kosztJednostkowy * litry;
+
+    document.getElementById('wynik').innerHTML = "koszt paliwa: " + suma + " zł";
+}
+	
+	</script>
+	
+</body>
+</html>
